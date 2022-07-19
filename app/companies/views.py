@@ -10,22 +10,20 @@ def index(request):
     return render(request, 'companies/index.html', context)
 
 def employees(request, company_id):
-    employee_list= Employee.objects.filter(company_id=company_id)
-    company= get_object_or_404(Company, pk= company_id)
+    company_get= Company.objects.get(id=company_id)
+    employee_list= company_get.employee.all()
     #print(employee_list)
     context= {
+        'company_get':company_get,
         'employee_list':employee_list,
-        'company':company,
     }
     return render(request, 'companies/employees.html', context)
 
-def detail(request, employee_id, company_id):
-    detail_list=More.objects.filter(employee_id=employee_id)
-    employee= get_object_or_404(Employee, pk= employee_id)
-    company=employees(company_id)
+def detail(request, employee_id):
+    employee_get=Employee.objects.get(id=employee_id)
+    detail_list= employee_get.more.all()
     context= {
-        'employee':employee,
-        'company': company,
+        'employee_get':employee_get,
         'detail_list':detail_list,
     }
     return render(request, 'companies/detail.html', context)
