@@ -19,11 +19,13 @@ def employees(request, company_id):
     }
     return render(request, 'companies/employees.html', context)
 
-def detail(request, employee_id):
+def detail(request, employee_id, company_id):
     detail_list=More.objects.filter(employee_id=employee_id)
-    #employee= get_object_or_404(Employee, pk= employee_id)
+    employee= get_object_or_404(Employee, pk= employee_id)
+    company=employees(company_id)
     context= {
+        'employee':employee,
+        'company': company,
         'detail_list':detail_list,
-        #'employee':employee,
     }
     return render(request, 'companies/detail.html', context)
