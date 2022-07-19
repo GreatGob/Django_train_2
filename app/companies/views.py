@@ -19,10 +19,12 @@ def employees(request, company_id):
     }
     return render(request, 'companies/employees.html', context)
 
-def detail(request, employee_id):
-    employee_get=Employee.objects.get(id=employee_id)
+def detail(request,employee_id, company_id):
+    company_get= Company.objects.get(id=company_id)
+    employee_get=company_get.employee.get(id=employee_id)
     detail_list= employee_get.more.all()
     context= {
+        'company_get':company_get,
         'employee_get':employee_get,
         'detail_list':detail_list,
     }

@@ -4,7 +4,11 @@
         {%if detail_list%}
         <ul>
             {%for detail in detail_list%}
-            <li>{{detail.first_name}} -- {{detail.last_name}} -- {{detail.age}}></li>
+            <h3>
+                <li>Firt name   : {{detail.first_name}} </li>
+                <li>Last_name   : {{detail.last_name}} </li>
+                <li>Age         : {{detail.age}}</li>
+            </h3>
             {%endfor%}
         </ul>
         {%else%}
