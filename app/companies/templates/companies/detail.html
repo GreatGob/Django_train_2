@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h1> {{employee.e_name}} information</h1>
+        {%if detail_list%}
+        <ul>
+            {%for detail in detail_list%}
+            <li>{{detail.first_name}} -- {{detail.last_name}} -- {{detail.age}}></li>
+            {%endfor%}
+        </ul>
+        {%else%}
+        <p> No information are available.</p>
+        {%endif%}
+    </body>
+</html>

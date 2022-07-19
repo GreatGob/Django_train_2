@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <h1> Company Checklist </h1>
+        {%if company_list%}
+        <ul>
+            {%for company in company_list%}
+            <h3>
+                <li><a href="{%url 'companies:employees' company.id%}">{{company.c_name}}</a></li>
+            </h3>
+            {%endfor%}
+        </ul>
+        {%else%}
+        <p> No companies are available. </p>
+        {%endif%}
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+    <body>
+     
+        <h1> {{company.c_name}} employees </h1>
+        
+        {%if employee_list%}
+        <ul>
+            {%for employee in employee_list%}
+            <h3>
+                <li><a href="{%url 'companies:detail' employee.id %}">{{employee.e_name}}</a></li>
+            </h3>
+            {%endfor%}
+        </ul>
+        {%else%}
+        <p> No employees are available. </p>
+        {%endif%}
+    </body>
+</html>    
