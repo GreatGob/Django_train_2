@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Company, Employee, More
+from django.shortcuts import render
+from .models import Company
 
 # Create your views here.
 def index(request):
@@ -19,10 +19,10 @@ def employees(request, company_id):
     }
     return render(request, 'companies/employees.html', context)
 
-def detail(request,employee_id, company_id):
+def detail(request, company_id, employee_id):
     company_get= Company.objects.get(id=company_id)
     employee_get=company_get.employee.get(id=employee_id)
-    detail_list= employee_get.more.all()
+    detail_list= employee_get.more.filter()
     context= {
         'company_get':company_get,
         'employee_get':employee_get,

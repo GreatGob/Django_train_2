@@ -5,14 +5,16 @@
         <ul>
             {%for detail in detail_list%}
             <h3>
-                <li>Firt name   : {{detail.first_name}} </li>
-                <li>Last_name   : {{detail.last_name}} </li>
-                <li>Age         : {{detail.age}}</li>
+                <li>First name : {{detail.first_name}} </li>
+                <li>Last name : {{detail.last_name}} </li>
+                <li>Age  : {{detail.age}}</li>
             </h3>
             {%endfor%}
         </ul>
         {%else%}
         <p> No information are available.</p>
         {%endif%}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{%static 'companies/index.css'%}">
     </body>
 </html>

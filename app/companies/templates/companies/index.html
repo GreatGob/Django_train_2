@@ -12,5 +12,7 @@
         {%else%}
         <p> No companies are available. </p>
         {%endif%}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{%static 'companies/index.css'%}">
     </body>
 </html>
